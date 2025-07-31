@@ -1,0 +1,19 @@
+{
+  "name": "hubkit-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "twitter-api-v2": "^1.18.2",
+    "twitter-openapi-typescript": "^0.0.55"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  }
+}
