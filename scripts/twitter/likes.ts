@@ -2,7 +2,7 @@
 
 import { readOnlyClient } from './common';
 
-let maxResults = 100;
+let maxResults = 5;
 let userId:string = '1661187544476975104';
 readOnlyClient.userLikedTweets(userId, {
     max_results: maxResults,
