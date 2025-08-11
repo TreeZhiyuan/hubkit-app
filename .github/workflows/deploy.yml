@@ -8,6 +8,7 @@
     jobs:
       deploy:
         runs-on: ubuntu-latest
+        # environment variables for Twitter API
         env:
           APP_KEY: ${{ secrets.APP_KEY }}
           APP_SECRET: ${{ secrets.APP_SECRET }}
@@ -20,22 +21,24 @@
           - name: Setup Node.js
             uses: actions/setup-node@v4
             with:
-              node-version: '20' # or your preferred Node.js version
+              node-version: '20'
               cache: 'npm'
 
           - name: Install Dependencies
             run: npm install
 
           - name: Build Vite Project
-            run: npm run build # Assumes you have a 'build' script in package.json
+            run: npm run build
 
-          - name: Deploy to GitHub Pages # Example for GitHub Pages
+          - name: Deploy to GitHub Pages
             uses: peaceiris/actions-gh-pages@v3
             with:
               github_token: ${{ secrets.GITHUB_TOKEN }}
-              publish_dir: ./dist # Or your build output directory
+              publish_dir: ./dist
 
-          - name: run demo.ts file
+          - name: do twitter scripts
             run: |
               npm install --save-dev ts-node typescript
-              node --loader ts-node/esm scripts/demo.ts
+              node --loader ts-node/esm scripts/twitter/tuserInfo.ts
+              node --loader ts-node/esm scripts/twitter/likes.ts
+              node --loader ts-node/esm scripts/twitter/posts.ts
