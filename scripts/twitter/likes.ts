@@ -2,13 +2,13 @@
 
 import { readOnlyClient } from "./common.ts";
 
-let maxResults = 5;
+let maxResults = 1;
 let userId:string = '1661187544476975104';
 readOnlyClient.userLikedTweets(userId, {
     max_results: maxResults,
     'tweet.fields': ['author_id', 'created_at', 'text', 'public_metrics'],
 }).then((likes) => {
-    console.log('User Likes:', likes);
+    console.log('User Likes:', likes.data);
 }).catch((error) => {
     console.error('Error fetching user likes:', error);
 });
