@@ -39,6 +39,4 @@
           - name: do twitter scripts
             run: |
               npm install --save-dev ts-node typescript
-              node --loader ts-node/esm scripts/twitter/tuserInfo.ts
-              node --loader ts-node/esm scripts/twitter/likes.ts
               node --loader ts-node/esm scripts/twitter/posts.ts
