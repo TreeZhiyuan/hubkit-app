@@ -1,6 +1,6 @@
 // https://developer.x.com/en/docs/twitter-api/tweets/likes/api-reference/get-users-id-liked_tweets
 
-import { readOnlyClient } from "./common";
+import { readOnlyClient } from "./common.ts";
 
 let maxResults = 5;
 let userId:string = '1661187544476975104';

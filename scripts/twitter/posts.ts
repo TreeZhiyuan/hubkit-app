@@ -1,4 +1,4 @@
-import { readOnlyClient, readWriteClient } from "./common";
+import { readOnlyClient, readWriteClient } from "./common.ts";
 
 // https://developer.x.com/en/docs/twitter-api/tweets/timelines/api-reference/get-users-id-tweets
 
