@@ -4,8 +4,8 @@ import { readOnlyClient, readWriteClient } from "./common.ts";
 
 // zhiha 1397504889283092480
 readOnlyClient.userTimeline('1661187544476975104', {
-    max_results: 1,
-    'tweet.fields': ['author_id', 'created_at'],
+    max_results: 6,
+    'tweet.fields': ['author_id', 'created_at', 'text', 'public_metrics'],
 }).then((tweets) => {
     console.log('User Tweets:', tweets);
 }).catch((error) => {
