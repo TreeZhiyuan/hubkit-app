@@ -1,0 +1,42 @@
+    name: fetch liked posts
+
+    on:
+      schedule:
+        # Runs every two days at midnight UTC
+        - cron: '0 0 0 1/2 * ?'
+
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+        # environment variables for Twitter API
+        env:
+          APP_KEY: ${{ secrets.APP_KEY }}
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+        steps:
+          - name: Checkout Repository
+            uses: actions/checkout@v4
+
+          - name: Setup Node.js
+            uses: actions/setup-node@v4
+            with:
+              node-version: '20'
+              cache: 'npm'
+
+          - name: Install Dependencies
+            run: npm install
+
+          - name: Build Vite Project
+            run: npm run build
+
+          - name: Deploy to GitHub Pages
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./dist
+
+          - name: do twitter scripts
+            run: |
+              npm install --save-dev ts-node typescript
+              node --loader ts-node/esm scripts/twitter/likes.ts
