@@ -11,5 +11,4 @@ const twitterClient = new TwitterApi(
 );
 
 // Tell typescript it's a readonly app
-export const readOnlyClient = twitterClient.v2.readOnly;
-export const readWriteClient = twitterClient.v2.readWrite;
+export const twitterV2Client = twitterClient.v2;
