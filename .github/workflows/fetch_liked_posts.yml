@@ -3,7 +3,7 @@
     on:
       schedule:
         # Runs every two days at midnight UTC
-        - cron: '40 12 * * *'
+        - cron: '0 */1 * * *'
 
     jobs:
       deploy:
