@@ -2,8 +2,8 @@
 
     on:
       schedule:
-        # Runs every two days at midnight UTC
-        - cron: '0 */13 * * *'
+        # Every 30 minutes, between 00:00 am and 11:59 am UTC
+        - cron: '*/30 0-11 * * *'
 
     jobs:
       deploy:
