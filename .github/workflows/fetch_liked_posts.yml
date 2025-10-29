@@ -1,9 +1,10 @@
     name: fetch liked posts
 
     on:
-      schedule:
-        # Every 30 minutes, between 00:00 am and 11:59 am UTC
-        - cron: '*/30 0-11 * * *'
+      # schedule:
+      #   # Every 30 minutes, between 00:00 am and 11:59 am UTC
+      #   - cron: '*/30 0-11 * * *'
+      workflow_dispatch:
 
     jobs:
       deploy:
